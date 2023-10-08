@@ -1,9 +1,9 @@
 function calculateBMI() {
-  const weight = document.getElementById("weight").value;
-  const height = document.getElementById("height").value;
+  const weight = parseFloat(document.getElementById("weight").value);
+  const height = parseFloat(document.getElementById("height").value);
 
-  if (weight === "" || height === "") {
-    alert("Harap isi berat badan dan tinggi badan!");
+  if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
+    alert("Masukkan berat badan dan tinggi badan yang valid (lebih dari 0).");
     return;
   }
 
@@ -23,3 +23,4 @@ function calculateBMI() {
   const result = document.getElementById("result");
   result.innerHTML = `Your BMI is <span>${bmi.toFixed(1)}</span> which means You are <span>${category}</span>`;
 }
+
